@@ -1,0 +1,14 @@
+{
+  "name": "sowesign",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js 9000"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2"
+  }
+}
