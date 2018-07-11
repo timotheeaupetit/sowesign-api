@@ -7,42 +7,42 @@ class Metadata {
     }
 
     handleSignTag(data) {
-        Object.keys(data).forEach(x => console.log(x));
+        console.log(data)
     }
 
     handleAdminTag(data) {
-        Object.keys(data).forEach(x => console.log(x));
+        console.log(data[0])
     }
 
     handleUserTag(data) {
-        Object.keys(data).forEach(x => console.log(x));
+        console.log(data)
     }
 
     handleMeetingTag(data) {
-        Object.keys(data).forEach(x => console.log(x));
+        console.log(data[0])
     }
 
     handleScheduleTag(data) {
-        Object.keys(data).forEach(x => console.log(x));
+        console.log(data[0])
     }
 
     handleSubjectTag(data) {
-        Object.keys(data).forEach(x => console.log(x));
+        console.log(data[0])
     }
 
     handleRetryTag(data) {
-        Object.keys(data).forEach(x => console.log(x));
+        console.log(data[0])
     }
 
     parsePdf(file) {
         let itemProcessor = Rule.makeItemProcessor([
-            Rule.on(/^#SIGN\d{3}#$/).extractRegexpValues().then(this.handleSignTag),
-            Rule.on(/^#ADMIN#.+#$/).extractRegexpValues().then(this.handleAdminTag),
-            Rule.on(/^#USER\d{3}#.+#$/).extractRegexpValues().then(this.handleUserTag),
-            Rule.on(/^#MEETING#.+#$/).extractRegexpValues().then(this.handleMeetingTag),
-            Rule.on(/^#SCHEDULE#.+#$/).extractRegexpValues().then(this.handleScheduleTag),
-            Rule.on(/^#SUBJECT#.+#$/).extractRegexpValues().then(this.handleSubjectTag),
-            Rule.on(/^#RETRY#(\d#){3}$/).extractRegexpValues().then(this.handleRetryTag),
+            Rule.on(/(^#SIGN\d{3}#$)/).extractRegexpValues().accumulateAfterHeading().then(this.handleSignTag),
+            Rule.on(/(^#ADMIN#.+#$)/).extractRegexpValues().then(this.handleAdminTag),
+            Rule.on(/(^#USER\d{3}#.+#$)/).extractRegexpValues().accumulateAfterHeading().then(this.handleUserTag),
+            Rule.on(/(^#MEETING#.+#$)/).extractRegexpValues().then(this.handleMeetingTag),
+            Rule.on(/(^#SCHEDULE#.+#$)/).extractRegexpValues().then(this.handleScheduleTag),
+            Rule.on(/(^#SUBJECT#.+#$)/).extractRegexpValues().then(this.handleSubjectTag),
+            Rule.on(/(^#RETRY#(\d#){3}$)/).extractRegexpValues().then(this.handleRetryTag),
         ]);
         this.reader.parseFileItems(file, function(err, item){
             if (err)
