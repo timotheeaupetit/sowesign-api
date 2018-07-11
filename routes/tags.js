@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const Metadata = require("../models/Metadata");
+const Scraper = require("../models/Scraper");
 
 /* GET tags. */
-router.get('/', function(req, res, next) {
-    const filePath = req.query.file;
-    const metadata = new Metadata();
-    metadata.parsePdf(filePath);
-    
-    return res.status(200).json(["extract tags"]);
-});
+router.route('/')
+    .get(async function(req, res) {
+        const filePath = req.query.file;
+        const scraper = new Scraper();
+
+        scraper.extractTags(filePath, function(results) {
+            return res.status(200).json(results)
+        });
+    });
 
 module.exports = router;
