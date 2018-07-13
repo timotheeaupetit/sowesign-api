@@ -3,9 +3,11 @@ const router = express.Router();
 
 const Scraper = require("../models/Scraper");
 
-/* GET tags. */
+/**
+ * Routeur pour les tags
+ */
 router.route('/')
-    .get(async function(req, res) {
+    .get(function(req, res) {
         const filePath = req.query.file;
         const scraper = new Scraper();
 

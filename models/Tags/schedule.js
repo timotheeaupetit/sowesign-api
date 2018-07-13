@@ -1,3 +1,6 @@
+/**
+ * Classe permettant d'extraire les données du tag SCHEDULE
+ */
 class Schedule {
     constructor(data) {
         const [date, time, location, url] = data.replace('#SCHEDULE#', '').split('#');

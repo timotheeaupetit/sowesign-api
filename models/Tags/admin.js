@@ -1,3 +1,6 @@
+/**
+ * Classe permettant d'extraire les données du tag ADMIN
+ */
 class Admin {
     constructor(data) {
         const [lastName, firstName, email] = data.replace('#ADMIN#', '').split('#');

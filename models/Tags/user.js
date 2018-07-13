@@ -1,3 +1,6 @@
+/**
+ * Classe permettant d'extraire les données du tag USER
+ */
 class User {
     constructor(data) {
         const [tag, lastName, firstName, organization, email] = data.replace('#', '').split('#');

@@ -1,3 +1,6 @@
+/**
+ * Classe permettant d'extraire les données du tag SIGN
+ */
 class Sign {
     constructor(item, page) {
         this.coord_x1 = item.x;

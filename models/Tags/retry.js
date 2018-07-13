@@ -1,3 +1,6 @@
+/**
+ * Classe permettant d'extraire les données du tag RETRY
+ */
 class Retry {
     constructor(data) {
         const [offset, occurrences, periodicity] = data.replace('#RETRY#', '').split('#');

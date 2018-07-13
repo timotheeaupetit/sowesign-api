@@ -1,3 +1,6 @@
+/**
+ * Classe permettant d'extraire les données du tag SUBJECT
+ */
 class Email {
     constructor(data) {
         const [subject, content] = data.replace('#SUBJECT#', '').split('#');
